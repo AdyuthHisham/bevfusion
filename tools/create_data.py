@@ -89,6 +89,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 if __name__ == "__main__":
+    print("Script started",flush=True)
     load_augmented = None
     if args.virtual:
         if args.painted:
@@ -98,6 +99,7 @@ if __name__ == "__main__":
 
     if args.dataset == "nuscenes" and args.version != "v1.0-mini":
         train_version = f"{args.version}-trainval"
+        print(f"Processing trainval: {args.version}-trainval", flush=True)
         nuscenes_data_prep(
             root_path=args.root_path,
             info_prefix=args.extra_tag,
@@ -107,6 +109,7 @@ if __name__ == "__main__":
             max_sweeps=args.max_sweeps,
             load_augmented=load_augmented,
         )
+        print("Trainval done", flush=True)
         test_version = f"{args.version}-test"
         nuscenes_data_prep(
             root_path=args.root_path,

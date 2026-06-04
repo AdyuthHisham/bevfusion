@@ -136,3 +136,6 @@ runs/*
 # torch hipify generated files
 *_hip.*
 *.hip
+
+pretrained/
+nuscenes/
